@@ -7,4 +7,5 @@ researchers.
 
 Usage
 -----
-Simply run `xelatex` to make it.
+Simply run `xelatex thesis` to make it. You may need to run `bibtex thesis` and
+then `xelatex thesis` (twice) the first time you build it.
