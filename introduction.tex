@@ -1,0 +1,437 @@
+\chapter{Introduction}
+\label{introduction}
+
+Network connected devices such as personal computers, mobile phones,
+or gaming consoles are nowadays enjoying immense popularity. In
+parallel, the Web and the humongous amount of services it offers have
+certainly became the most ubiquitous tools of all the
+times. \textsf{Facebook} counts more than 250 millions active users of
+which 65 millions are using it on mobile devices; not to mention that
+more than 1 billion photos are uploaded to the site \emph{each
+  month}~\citep{facebook-stats}. And this is just one, popular
+website. One year ago, \textsf{Google} estimated that the approximate
+number of unique \acp{URL}\index{URL} is 1
+trillion~\citep{google-is-big}, while \texttt{YouTube} has stocked
+more than 70 million videos as of March 2008, with 112,486,327 views
+just on the most popular video as of January
+2009~\citep{social-media-stats}. And people from all over the world
+inundate the Web with more than 3 million tweets \emph{per day}. Not
+only the Web 2.0 has became predominant; in fact, thinking that on
+December 1990 the Internet was made of \emph{one} site and today it
+counts more than 100 million sites is just
+astonishing~\citep{internet-timeline}.
+
+The Internet and the Web are huge~\citep{inetworldstats}. The relevant
+fact, however, is that they both became the most advanced
+workplace. Almost every industry connected its own network to the
+Internet and relies on these infrastructures for a vast majority of
+transactions; most of the time monetary transactions. As an example,
+every year \textsf{Google} looses approximately 110 millions of US
+Dollars in ignored ads because of the \emph{``I'm feeling lucky''}
+button. The scary part is that, during their daily work activities,
+people typically pay poor or no attention at all to the risks that
+derive from exchanging any kind of information over such a complex,
+interconnected infrastructure. This is demonstrated by the
+effectiveness of social engineering~\citep{deception} scams carried
+over the Internet or the
+phone~\citep{social-engineering-fundamentals}. Recall that 76\% of the
+phishing is related to finance. Now, compare this landscape to what
+the most famous security quote states.
+
+\begin{quotation}
+  ``The only truly secure computer is one buried in concrete, with the
+  power turned off and the network cable cut''.
+
+  ---\emph{Anonymous}
+\end{quotation}
+
+In fact, the Internet is all but a safe place~\citep{whid}, with more than 1,250 \emph{known} data breaches between 2005 and 2009 \citep{data-breaches-chronology} and an estimate of 263,470,869 records stolen by intruders. One may wonder why the advance of research in computer security and the increased awareness of governments and public institutions are still not capable of avoiding such incidents. Besides the fact that the aforementioned numbers would be order of magnitude higher in absence of countermeasures, todays' security issues are, basically, caused by the combination of two phenomena: the high amount of software vulnerabilities and the effectiveness of todays' exploitation strategy.
+
+\begin{description}
+\item[software flaws] --- (un)surprisingly, software is affected by
+  vulnerabilities. Incidentally, tools that have to do with the Web,
+  namely, browsers and 3\textsuperscript{rd}-party extensions, and web
+  applications, are the most vulnerable ones. For instance, in 2008,
+  \textsf{Secunia} reported around 115 security vulnerabilities for
+  \textsf{Mozilla Firefox}, 366 for \textsf{Internet Explorer}'s
+  \textsf{ActiveX}~\citep{secunia2008}. Office suites and e-mail
+  clients, that are certainly the must\hyp{}have\hyp{}installed tool
+  on every workstation, hold the second position~\citep{sans20}.
+  
+\item[massification of attacks] --- in parallel to the explosion of
+  the Web 2.0, attackers and the underground economy have quickly
+  learned that a sweep of exploits run against \emph{every} reachable
+  host have more chances to find a vulnerable target and, thus, is
+  much more profitable compared to a single effort to break into a
+  high-value, well-protected machine.
+\end{description}
+
+These circumstances have initiated a vicious circle that provides the
+attackers with a very large pool of vulnerable targets. Vulnerable
+client hosts are compromised to ensure virtually unlimited bandwidth
+and computational resources to attackers, while server side
+applications are violated to host malicious code used to infect client
+visitors. And so forth. An old fashioned attacker would have violated
+a single site using all the resources available, stolen data and sold
+it to the underground market. Instead, a modern attacker adopts a
+``vampire'' approach and exploit client-side software vulnerabilities
+to take (remote) control of million hosts. In the past the diffusion
+of malicious code such as viruses was sustained by sharing of
+infected, cracked software through floppy or compact disks; nowadays,
+the Web offers unlimited, public storage to attackers that deploy
+their exploit on compromised websites.
+
+Thus, not only the type of vulnerabilities has changed, posing
+virtually every interconnected device at risk. The exploitation
+strategy created new types of threats that take advantage of classic
+malicious code patterns but in a new, extensive, and tremendously
+effective way.
+
+\section{Todays' Security Threats}
+\label{introduction:motivation} Every year, new threats are discovered
+and attacker take advantage of them until effective countermeasures
+are found. Then, new threats are discovered, and so
+forth. \textsf{Symantec} quantifies the amount of new malicious code
+threats to be 1,656,227 as of 2008
+\citep{symantec_threat_report_2009}, 624,267 one year earlier and only
+20,547 in 2002. Thus, countermeasures must advance at least with the
+same grow rate. In addition:
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\textwidth]{figures/intro/bots}
+  \caption{Illustration taken from~\citep{holz} and \copyright 2005
+  IEEE. Authorized license limited to \polimi.}
+  \label{fig:bots}
+\end{figure}
+
+\begin{quotation}
+  [...] the current threat landscape --- such as the increasing
+  complexity and sophistication of attacks, the evolution of attackers
+  and attack patterns, and malicious activities being pushed to
+  emerging countries --- show not just the benefits of, but also the
+  need for increased cooperation among security companies,
+  governments, academics, and other organizations and individuals to
+  combat these changes~\citep{symantec_threat_report_2009}.
+\end{quotation}
+
+Todays' underground economy run a very proficient market: everyone can
+buy credit card information for as low as \$0.06--\$30, full
+identities for just \$0.70--\$60 or rent a scam hosting solution for
+\$3--\$40 per week plus \$2-\$20 for the
+design~\citep{symantec_threat_report_2009}.
+
+The main underlying technology actually employs a classic type of
+software called \emph{bot} (jargon for \emph{robot}), which is not
+malicious \emph{per s\'e}, but is used to remotely control a network
+of compromised hosts, called \emph{botnet}~\citep{holz}. Remote
+commands can be of any type and typically include launching an attack,
+starting a phishing or spam campaign, or even updating to the latest
+version of the bot software by downloading the binary code from a host
+controlled by the attackers (usually called \emph{bot
+master})~\citep{torpig}. The exchange good has now become the botnet
+infrastructure itself rather than the data that can be stolen or the
+spam that can be sent. These are mere outputs of todays' most popular
+service offered for rent by the underground economy.
+
+\subsection{The Role of Intrusion Detection}
+\label{introduction:motivation:ids-role}
+The aforementioned, dramatic big picture may lead to think that the
+malicious software will eventually proliferate at every host of the
+Internet and no effective remediation exists. However, a more careful
+analysis reveals that, despite the complexity of this scenario, the
+problems that must be solved by a security infrastructure can be
+decomposed into relatively simple tasks that, surprisingly, may
+already have a solution. Let us look at an example.
+
+\begin{example}
+  This is how a sample exploitation can be structured:
+  \begin{description}
+  \item [injection] --- a malicious request is sent to the vulnerable
+  web application with the goal of corrupting all the responses sent
+  to legitimate clients from that moment on. For instance, more than
+  one releases of the popular \textsf{WordPress} blog application are
+  vulnerable to injection
+  attacks\footnote{http://secunia.com/advisories/23595} that allow an
+  attacker to permanently include arbitrary content to the
+  pages. Typically, such an arbitrary content is malicious code (e.g.,
+  JavaScript, VBSCrip, ActionScript, ActiveX) that, every time a
+  legitimate user requests the infected page, executes on the client
+  host.
+  \item [infection] --- Assuming that the compromised site is
+  frequently accessed --- this might be the realistic case of the
+  \textsf{WordPress}\hyp{}powered \textsf{ZDNet} news
+  blog\footnote{http://wordpress.org/showcase/zdnet/} --- a
+  significant amount of clients visit it. Due to the high popularity
+  of vulnerable browsers and plug-ins, the client may run
+  \textsf{Internet Explorer} --- that is the most popular --- or an
+  outdated release of \textsf{Firefox} on \textsf{Windows}. This
+  create the perfect circumstances for the malicious page to
+  successfully execute. In the best case, it may download a virus or a
+  generic malware from a website under control of the attacker, so
+  infecting the machine. In the worst case, this code may also exploit
+  specific browser vulnerabilities and execute in privileged mode.
+  \item [control \& use] --- The malicious code just download installs
+  and hides itself onto the victim's computer, which has just joined a
+  botnet. As part of it, the client host can be remotely controlled by
+  the attackers who can, for instance, rent it, use its bandwidth and
+  computational power along with other computers to run a distributed
+  \ac{DoS} attack. Also, the host can be used to automatically perform
+  the same attacks described above against other vulnerable web
+  applications. And so forth.
+  \end{description}
+\end{example}
+
+This simple yet quite realistic example shows the various kinds of
+malicious activity that are generated during a typical drive-by
+exploitation. It also shows its requirements and assumptions that must
+hold to guarantee success. More precisely, we can recognize:
+
+\begin{description}
+\item[network activity] --- clearly, the whole interaction relies on a
+  network connection over the Internet: the \ac{HTTP} connections
+  used, for instance, to download the malicious code as well as to
+  launch the injection attack used to compromise the web server.
+\item[host activity] --- similarly to every other type of attack
+  against an application, when the client-side code executes, the
+  browser (or one of its extension plug-ins) is forced to behave
+  improperly. If the malicious code executes till completion the
+  attack succeeds and the host is infected. This happens only if the
+  platform, operating system, and browser all match the requirements
+  assumed by the exploit designer. For instance, the attack may
+  succeed on \textsf{Windows} and not on \textsf{Mac OS X}, although
+  the vulnerable version of, say, \textsf{Firefox} is the same on both
+  the hosts.
+\item[HTTP traffic] --- in order to exploit the vulnerability of the
+  web application, the attacking client must generate malicious
+  \ac{HTTP} requests. For instance, in the case of an \ac{SQL}
+  injection --- that is the second most common vulnerability in a web
+  application --- instead of a regular
+
+  \begin{logs}
+    GET /index.php?username=myuser
+  \end{logs}
+  
+\noindent the web server might be forced to process a
+
+\begin{logs}
+  GET /index.php?username=' OR 'x'='x'--\&content=<script
+  src="evil.com/code.js">
+\end{logs}
+
+\noindent that causes the \texttt{index.php} page to behave
+improperly.
+\end{description}
+
+It is now clear that protection mechanisms that analyze the network
+traffic, the activity of the client's operating system, the web
+server's \ac{HTTP} logs, or any combination of the three, have chances
+of recognizing that something malicious is happening in the
+network. For instance, if the \ac{ISP} network adopt \textsf{Snort}, a
+lightweight \ac{IDS} that analyzes the network traffic for known
+attack patterns, could block all the packets marked as
+suspicious. This would prevent, for instance, the \ac{SQL} injection
+to reach the web application. A similar protection level can be
+achieved by using other tools such as \textsf{ModSecurity}
+\citep{ristic:mod_security}. One of the problems that may arise with
+these classic, widely adopted solutions is if a zero day\index{0-day}
+attack is used. A zero day attack or threat exploits a vulnerability
+that is unknown to the public, undisclosed to the software vendor, or
+a fix is not available; thus, protection mechanisms that merely
+blacklist known malicious activity immediately become ineffective. In
+a similar vein, if the client is protected by an anti-virus, the
+infection phase can be blocked. However, this countermeasure is once
+again successful only if the anti-virus is capable of recognizing the
+malicious code, which assumes that the code is known to be malicious.
+
+Ideally, an effective and comprehensive countermeasure can be achieved
+if all the protection tools involved (e.g., client\hyp{}side,
+server\hyp{}side, network\hyp{}side) can collaborate together. For
+instance, if a website is publicly reported to be malicious, a
+client\hyp{}side protection tool should block all the content
+downloaded from that particular website. This is only a simple
+example.
+
+Thus, countermeasures against todays' threats already exist but are
+subject to at least two drawbacks:
+
+\begin{itemize}
+\item they offer protection only against known threats. To be
+effective we must assume that all the hostile traffic can be
+enumerated, which is clearly an impossible task.
+
+  \begin{quotation}
+    Why is ``Enumerating Badness'' a dumb idea? It's a dumb idea
+    because sometime around 1992 the amount of Badness in the Internet
+    began to vastly outweigh the amount of Goodness. For every
+    harmless, legitimate, application, there are dozens or hundreds of
+    pieces of malware, worm tests, exploits, or viral code. Examine a
+    typical antivirus package and you'll see it knows about 75,000+
+    viruses that might infect your machine. Compare that to the
+    legitimate 30 or so apps that I've installed on my machine, and
+    you can see it's rather dumb to try to track 75,000 pieces of
+    Badness when even a simpleton could track 30 pieces of
+    Goodness~\citep{ranum-myths}.
+  \end{quotation}
+
+\item they lack of cooperation, which is crucial to detect global and
+slow attacks.
+\end{itemize}
+
+This said, we conclude that classic approaches such as dynamic and
+static code analysis and \ac{IDS} already offer good protection but
+industry and research should move toward methods that require little
+or no knowledge. In this work, we indeed focus on the so called
+anomaly-based approaches, i.e., those that attempt to recognize the
+threats by detecting any variation from a system's normal operation,
+rather than looking for signs of known\hyp{}to\hyp{}be\hyp{}malicious
+activity.
+
+\section{Original Contributions}
+\label{introduction:contributions} Our main research area is
+\ac{ID}. In particular, we focus on anomaly-based approaches to detect
+malicious activities. Since todays' threats are complex, a single
+point of inspection is not effective. A more comprehensive monitoring
+system is more desirable to protect both the network, the applications
+running on a certain host, and the web applications (that are
+particularly exposed due to the immense popularity of the Web). Our
+contributions focus on the mitigation of both host-based and web-based
+attacks, along with two techniques to correlate alerts from hybrid
+sensors.
+
+\subsection{Host-based Anomaly Detection} Typical malicious processes
+can be detected by modeling the characteristics (e.g., type of
+arguments, sequences) of the system calls executed by the kernel, and
+by flagging unexpected deviations as attacks. Regarding this type of
+approaches, our contributions focus on hybrid models to accurately
+characterize the behavior of a binary application. In particular:
+
+\begin{itemize}
+\item we enhanced, re-engineered, and evaluated a novel tool for
+  modeling the normal activity of the Linux 2.6 kernel. Compared to
+  other existing solutions, our system shows better detection
+  capabilities and good contextualization of the alerts
+  reported. These results are detailed in Section~\ref{host:syscall}.
+\item We engineered and evaluated an \ac{IDS} to demonstrate that the
+  combined use of (1) deterministic models to characterize a process'
+  control flow and (2) stochastic models to capture normal features of
+  the data flow, lead to better detection accuracy. Compared to the
+  existing deterministic and stochastic approaches separately, our
+  system shows better accuracy, with almost zero false
+  positives. These results are detailed in
+  Section~\ref{host:improving}.
+\item We adapted our techniques for forensics investigation. By
+  running experiments on real-world data and attacks, we show that our
+  system is able to detect hidden tamper evidence although
+  sophisticated anti-forensics tools (e.g., userland process
+  execution) have been used. These results are detailed in
+  Section~\ref{host:forensics}.
+\end{itemize}
+
+\subsection{Web-based Anomaly Detection} Attempts of compromising a
+web application can be detected by modeling the characteristics (e.g.,
+parameter values, character distributions, session content) of the
+\ac{HTTP}\index{HTTP} messages exchanged between servers and clients
+during normal operation. This approach can detect virtually any
+attempt of tampering with \ac{HTTP}\index{HTTP} messages, which is
+assumed to be evidence of attack. In this research field, our
+contributions focus on training data scarcity issues along with the
+problems that arise when an application changes its legit behavior. In
+particular:
+
+\begin{itemize}
+\item we contributed to the development of a system that learns the
+  legit behavior of a web application. Such a behavior is defined by
+  means of features extracted from 1) HTTP requests, 2) HTTP
+  responses, 3) SQL queries to the underlying database, if any. Each
+  feature is extracted and learned by using different models, some of
+  which are improvements over well-known approaches and some others
+  are original. The main contribution of this work is the
+  \emph{combination} of database query models with HTTP-based
+  models. The resulting system has been validated through preliminary
+  experiments that shown very high accuracy. These results are
+  detailed in Section~\ref{web:intro:masibty}.
+\item we developed a technique to automatically detect legit changes
+  in web applications with the goal of suppressing the large amount of
+  false detections due to code upgrades, frequent in todays' web
+  applications. We run experiments on real-world data to show that our
+  simple but very effective approach accurately predict changes in web
+  applications and can distinguish good \emph{vs.} malicious changes
+  (i.e., attacks). These results are detailed in
+  Section~\ref{web:conceptdrift}.
+\item We designed and evaluated a machine learning technique to
+  aggregate \ac{IDS} models with the goal of ensuring good detection
+  accuracy even in case of scarce training data available. Our
+  approach relies on clustering techniques and nearest-neighbor search
+  to look-up well-trained models used to replace under-trained ones
+  that are prone to overfitting and thus false detections. Experiments
+  on real-world data have shown that almost every false alert due to
+  overfitting is avoided with as low as 32-64 training samples per
+  model. These results are described in Section~\ref{web:longtail}.
+\end{itemize}
+
+Although these techniques have been developed on top of a web-based
+anomaly detector, they are sufficiently generic to be easily adapted
+to other systems using learning approaches.
+
+\subsection{Alert Correlation} \ac{IDS} alerts are usually
+post-processed to generate compact reports and eliminate redundant,
+meaningless, or false detections. In this research field, our
+contributions focus on unsupervised techniques applied to aggregate
+and correlate alert events with the goal of reducing the effort of the
+security officer. In particular:
+
+\begin{itemize}
+\item We developed and tested an approach that accounts for the common
+measurement errors (e.g., delays and uncertainties) that occur in the
+alert generation process. Our approach exploits fuzzy metrics both to
+model errors and to construct an alert aggregation criterion based on
+distance in time. This technique has been show to be more robust
+compared to classic time-distance based aggregation metrics. These
+results are detailed in Section~\ref{correlation:fusion}.
+\item We designed and tested a prototype that models the alert
+generation process as a stochastic process. This setting allowed us to
+construct a simple, non-parametric hypothesis test that can detect
+whether two alert streams are correlated or not. Besides its
+simplicity, the advantage of our approach is to not requiring any
+parameter. These results are described in
+Section~\ref{correlation:causality}.
+\end{itemize}
+
+The aforementioned results have been published in the proceedings of
+international conferences and international journals.
+
+\section{Document Structure}
+\label{introduction:structure} This document is structured as
+follows. Chapter~\ref{detection} introduces the \ac{ID}, that is the
+topic of our research. In particular, Chapter~\ref{detection}
+rigorously describes all the basic components that are necessary to
+define the \ac{ID} task and an \acp{IDS}. The reader with knowledge on
+this subject may skip the first part of the chapter and focus on
+Section~\ref{detection:ad} and \ref{detection:correlation} that
+include a comprehensive review of the most relevant and influential
+modern approaches on network-, host-, web-based \ac{ID} techniques,
+along with a separate overview of the alert correlation approaches.
+
+As described in Section~\ref{introduction:contributions}, the
+description of our contributions is structured into three
+chapters. Chapter~\ref{host} focuses on host-based techniques,
+Chapter~\ref{web} regards web-based anomaly detection, while
+Chapter~\ref{correlation} described two techniques that allow to
+recognize relations between alerts reported by network- and host-based
+systems. Reading Section~\ref{detection:ad:network} is recommended
+before reading Chapter~\ref{correlation}.
+
+The reader interested in protection techniques for the operating
+system can skim through Section~\ref{detection:ad:host} and then read
+Chapter~\ref{host}. The reader with interests on web-based protection
+techniques can read Section~\ref{detection:ad:web} and then
+Chapter~\ref{web}. Similarly, the reader interested in alert
+correlation systems can skim through
+Section~\ref{detection:ad:network} and \ref{detection:ad:host} and
+then read Chapter~\ref{correlation}.
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "thesis"
+%%% End: 

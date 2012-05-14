@@ -1,0 +1,347 @@
+%!TEX encoding = ISO-8859-1
+
+\documentclass[%
+10pt,%
+showtrims%
+]{memoir}
+
+% metadata
+\title{Integrated Detection of Anomalous Behavior of Computer Infrastructures}
+\author{Federico Maggi}
+\date{2009 - XXII}
+
+% packages:
+\XeTeXinputencoding latin1
+\usepackage[latin1]{inputenx}
+\usepackage[T1]{fontenc}
+\usepackage[english,italian]{babel}
+\usepackage[square]{natbib}\citeindextrue
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{tikz,pgf}
+\usepackage{amsmath,amssymb,theorem}
+\usepackage{url}
+\usepackage{listings}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{xspace}
+\usepackage{cancel}
+\usepackage{subfig}
+\usepackage[printonlyused,withpage]{acronym}
+\usepackage{rotating}
+\usepackage{cite}
+\usepackage{array}
+\usepackage[htt]{hyphenat}
+\usepackage{hyperref}
+\usepackage{fontspec}
+
+% pdf
+\hypersetup{bookmarks, colorlinks, breaklinks, pdftitle={Integrated
+    Detection of Anomalous Behavior of Computer
+    Infrastructures},pdfauthor={Federico Maggi},
+  linkcolor=black,citecolor=black,filecolor=black,urlcolor=black}
+
+% other metadata
+\newcommand{\polimi}{Politecnico di Milano\xspace}
+\newcommand{\dei}{Dipartimento di Elettronica e Informazione\xspace}
+\newcommand{\address}{Piazza Leonardo da Vinci 32, I-20133 --- Milano\xspace}
+\newcommand{\POLIMI}{\uppercase{\polimi}}
+\newcommand{\DEI}{\uppercase{\dei}}
+
+% fonts
+\newcommand{\XeTeX}{{\normalsize X\textsubscript{\footnotesize E}T\textsubscript{\footnotesize E}X}\xspace}
+\newcommand{\nfont}{Adobe Caslon Pro}
+\newcommand{\ttfont}{Envy Code R}
+\newcommand{\sffont}{Optima Regular}
+\newcommand{\commodorefont}{Commodore 64 Pixeled}
+\defaultfontfeatures{Mapping=tex-text}
+\setromanfont[Ligatures={Common}]{\nfont}
+\setmonofont[Scale=0.8]{\ttfont}
+\setsansfont[Scale=0.9]{\sffont}
+
+%acronyms
+\renewcommand*{\acfsfont}[1]{{\normalsize\upshape #1}}
+\renewcommand*{\acffont}[1]{{\normalsize\itshape #1}}
+
+% hypenations
+\hyphenation{a-no-ma-lous a-no-ma-ly lib-a-no-ma-ly web-a-no-ma-ly group-ed fuzz-ing a-mo-unts bre-ach-es well-trai-ned trai-ned data-set data-sets a-gain-st}
+
+% graphics
+\usetikzlibrary{patterns,shadows,automata,calc,arrows,shapes,backgrounds,fit,trees}
+\definecolor{c64}{rgb}{.063,0,.612}
+\definecolor{c64light}{rgb}{.451,.451,1}
+
+% layout:
+% w = 297mm
+% P =~ sqrt(2)
+% s = 297/8 (spine)
+% t = 297/8 (top)
+% e = 297/4 (fore-edge)
+% f = 297/4 (foot)
+%\setstocksize{24cm}{17cm}
+\settrimmedsize{24cm}{17cm}{*}
+\setlrmarginsandblock{37.125mm}{*}{*}
+\setulmarginsandblock{37.125mm}{*}{*}
+\setmarginnotes{17pt}{51pt}{\onelineskip}
+\setheadfoot{\onelineskip}{2\onelineskip}
+\setheaderspaces{*}{2\onelineskip}{*}
+\setlength{\trimtop}{0pt}
+\setlength{\trimedge}{\stockwidth}
+\addtolength{\trimedge}{-\paperwidth}
+\checkandfixthelayout
+
+% chapter style:
+\makeatletter
+\makechapterstyle{thesis}{%
+  \renewcommand{\chapternamenum}{}
+  \setlength{\beforechapskip}{0pt}
+  \setlength{\midchapskip}{0pt}
+  \setlength{\afterchapskip}{0pt}
+  \renewcommand{\chapnamefont}{\LARGE}
+  \renewcommand{\chapnumfont}{\chapnamefont}
+  \renewcommand{\chaptitlefont}{\chapnamefont}
+  \renewcommand{\printchapternum}{}
+  \renewcommand{\afterchapternum}{}
+  \renewcommand{\printchaptername}{}
+  \renewcommand{\afterchaptertitle}{\chapnumfont\hfill\thechapter\\\vspace*{-.3cm}\hrulefill\vspace*{6cm}\\}
+}
+\makeatother
+
+\newcommand{\license}{%
+  \section*{Terms of use}
+  
+  Instead of distributing this \XeTeX template with dummy content,
+  which really doesn't make a lot of sense if one needs to see all the
+  features in action, I've chosen to distribute the source of my PhD
+  dissertation.
+
+  Every single bit of what I distribute is under the
+  Attribution-NonCommercial-ShareAlike 3.0 Unported license. So,
+  before using these files, please follow this URL:
+
+  \url{http://creativecommons.org/licenses/by-nc-sa/3.0/}.
+
+  \section*{Fonts and packages}
+  You will need to install some free packages and special fonts if you
+  want to unleash all the power of \textsf{\XeTeX}. This document was
+  typeset using the \textsf{\XeTeX} typesetting system created by the
+  Non-Roman Script Initiative and the memoir class created by Peter
+  Wilson. The body text is set 10pt with~\nfont. Other fonts include
+  \texttt{\ttfont}, \textsf{\sffont} and. Most of the drawings are
+  typeset using the \textsf{TikZ/PGF} packages by Till Tantau.
+
+  \section*{Help!}
+  To build this document run \texttt{xelatex thesis}, then
+  \texttt{bibtex thesis} and then \texttt{xelatex thesis} twice and
+  enjoy the \texttt{thesis.pdf}. For further help refer to
+  \url{http://www.ctan.org/tex-archive/macros/latex/contrib/memoir/memman.pdf}
+  and \url{http://faq.tug.org}. Googling about \LaTeX~often makes you
+  fail \url{http://mirror.ctan.org/info/l2tabu/english/l2tabuen.pdf}.
+
+  \section*{How to remove this note}
+  To remove this note, open \texttt{thesis.tex} and comment line 146.
+  
+  \begin{flushright}
+    --Federico, \href{mailto:fmaggi@elet.polimi.it}{fmaggi@elet.polimi.it}
+  \end{flushright}
+
+  \cleardoublepage}
+
+% titles:
+\renewcommand{\maketitlehooka}{%
+  \license %COMMENT THIS TO REMOVE THE DISCLAIMER NOTE
+  \centering
+  \includegraphics[width=2.5cm]{figures/polimi-logo}\\[.5cm]
+  \POLIMI\\
+  \emph{\dei}\\[.2cm]
+  DOTTORATO DI RICERCA IN INGEGNERIA DELL'INFORMAZIONE
+  \par
+  \hrulefill
+  \vfill}
+\renewcommand{\maketitlehookb}{\vfill}
+\renewcommand{\maketitlehookc}{%
+  \vfill
+  \begin{flushleft}
+    Advisor:\\
+    \textbf{Prof. Stefano Zanero}\\[.3cm]
+    Tutor:\\
+    \textbf{Prof. Letizia Tanca}\\[.3cm]
+    Supervisor of the Doctoral Program:\\
+    \textbf{Prof. Patrizio Colaneri}
+  \end{flushleft}
+  \vfill}
+\preauthor{\begin{flushright}Doctoral Dissertation of:\\\bfseries}
+\postauthor{\end{flushright}}
+
+% divisions:
+\maxsecnumdepth{subsubsection}
+\maxtocdepth{subsection}
+
+\makeatletter 
+\renewcommand{\fnum@figure}{\textsc{\figurename~\thefigure}}
+\makeatother
+
+% math
+\DeclareMathOperator{\Score}{Score}
+\DeclareMathOperator{\stdev}{stdev}
+\DeclareMathOperator{\BMU}{BMU}
+\newcommand{\mtok}{m^{\left(\text{tok}\right)}}
+\newcommand{\mint}{m^{\left(\text{int}\right)}}
+\newcommand{\mdoc}{m^{\left(\text{doc}\right)}}
+\newcommand{\msess}{m^{\left(\text{sess}\right)}}
+\newcommand{\mlen}{m^{\left(\text{len}\right)}}
+\newcommand{\mchar}{m^{\left(\text{char}\right)}}
+\newcommand{\mstruct}{m^{\left(\text{struct}\right)}}
+\newcommand{\kb}{\mathcal{C}}
+
+\newcommand{\qed}{\blacksquare}
+
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{proof}{Proof}[section]
+
+\theorembodyfont{\rmfamily}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{example}{Example}[section]
+
+\newtheorem{rem}{Remark}
+\newtheorem{note}{Note}[section]
+
+\makeatletter
+\newif\if@borderstar
+\def\bordermatrix{\@ifnextchar*{%
+    \@borderstartrue\@bordermatrix@i}{\@borderstarfalse\@bordermatrix@i*}%
+}
+\def\@bordermatrix@i*{\@ifnextchar[{%
+    \@bordermatrix@ii}{\@bordermatrix@ii[()]}
+}
+\def\@bordermatrix@ii[#1]#2{%
+  \begingroup
+  \m@th\@tempdima8.75\p@\setbox\z@\vbox{%
+    \def\cr{\crcr\noalign{\kern 2\p@\global\let\cr\endline }}%
+    \ialign {$##$\hfil\kern 2\p@\kern\@tempdima & \thinspace%
+      \hfil $##$\hfil && \quad\hfil $##$\hfil\crcr\omit\strut%
+      \hfil\crcr\noalign{\kern -\baselineskip}#2\crcr\omit%
+      \strut\cr}}%
+  \setbox\tw@\vbox{\unvcopy\z@\global\setbox\@ne\lastbox}%
+  \setbox\tw@\hbox{\unhbox\@ne\unskip\global\setbox\@ne\lastbox}%
+  \setbox\tw@\hbox{%
+    $\kern\wd\@ne\kern -\@tempdima\left\@firstoftwo#1%
+      \if@borderstar\kern2pt\else\kern -\wd\@ne\fi%
+      \global\setbox\@ne\vbox{\box\@ne\if@borderstar\else\kern 2\p@\fi}%
+      \vcenter{\if@borderstar\else\kern -\ht\@ne\fi%
+        \unvbox\z@\kern-\if@borderstar2\fi\baselineskip}%
+      \if@borderstar\kern-2\@tempdima\kern2\p@\else\,\fi\right\@secondoftwo#1 $%
+  }\null \;\vbox{\kern\ht\@ne\box\tw@}%
+  \endgroup
+}
+\makeatother
+
+% code:
+\lstset{
+  basicstyle=\ttfamily\small,
+  basewidth=0.55em,
+  showstringspaces=false,
+  numbers=left,
+  numberstyle=\tiny,
+  numbersep=2.5pt,
+  keywordstyle=\bfseries\ttfamily,
+  breaklines=true
+}
+\lstnewenvironment{pseudoc}{\lstset{frame=lines,language=C,mathescape=true}}{}
+\lstnewenvironment{logs}{\lstset{frame=lines,basicstyle=\footnotesize\ttfamily,numbers=none}}{}
+\lstnewenvironment{cc}{\lstset{frame=lines,language=C}}{}
+\lstnewenvironment{c64}{\lstset{backgroundcolor=\color{c64},basewidth=0.65em,basicstyle=\commodoreface\color{c64light},numbers=none,framerule=10pt,rulecolor=\color{c64light},frame=tb,framexbottommargin=30pt}}{}
+\lstnewenvironment{html}{\lstset{frame=lines,language=html,numbers=none}}{}
+\lstnewenvironment{pseudo}{\lstset{frame=lines,mathescape=true,morekeywords={learn_string_domain, save_model}}}{}
+
+\lstnewenvironment{pseudoctiny}{\lstset{language=C,mathescape=true,basicstyle=\tiny\sffamily}}{}
+\lstnewenvironment{cctiny}{\lstset{language=C,basicstyle=\tiny\sffamily}}{}
+\lstnewenvironment{pseudotiny}{\lstset{mathescape=true,basicstyle=\tiny\sffamily}}{}
+
+% definitions:
+\newcommand{\SSAADE}{S\textsuperscript{2}A\textsuperscript{2}DE\xspace}
+\newcommand{\SyscallAnomaly}{\index{SyscallAnomaly}\textsf{Sys\-call\-A\-no\-ma\-ly}\xspace}
+\newcommand{\LibAnomaly}{\index{LibAnomaly}\textsf{Lib\-A\-no\-ma\-ly}\xspace}
+\newcommand{\webanomaly}{\index{webanomaly}\textsf{web\-a\-no\-ma\-ly}\xspace}
+\newcommand{\masibty}{\index{Masibty}\textsf{Masibty}\xspace}
+
+\makeindex
+
+\begin{document}
+
+\selectlanguage{english}
+
+\begin{titlingpage}
+  \maketitle
+\end{titlingpage}
+
+\frontmatter
+
+\include{preface}
+
+\cleartoverso
+
+\include{abstract}
+
+\cleartoverso
+
+\selectlanguage{italian}
+
+\include{sommario}
+
+\selectlanguage{english}
+
+\cleartoverso
+
+\tableofcontents*
+
+\mainmatter
+
+\chapterstyle{thesis}
+
+\pagestyle{Ruled}
+
+\include{introduction}
+
+\let\stdsection\section
+\renewcommand\section{\newpage\stdsection}
+
+\include{detection}
+\include{host}
+\include{web}
+\include{correlation}
+\include{conclusions}
+
+\backmatter
+
+\chapterstyle{default}
+
+\bibliographystyle{plainnat}
+\bibliography{bib/all}
+
+\printindex
+
+\include{acronyms}
+
+\cleartoverso
+
+\listoffigures
+
+\cleartoverso
+
+\listoftables
+
+\cleartoverso
+
+\pagestyle{empty}
+
+\include{colophon}
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 
